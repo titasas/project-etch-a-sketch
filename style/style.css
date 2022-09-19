@@ -1,10 +1,6 @@
 /*# sourceMappingURL=style.css.map */
-body {
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-#grid {
+.board {
+  width: 500px;
+  height: 500px;
   display: grid;
-  grid-template-columns: repeat(16, 30px);
 }

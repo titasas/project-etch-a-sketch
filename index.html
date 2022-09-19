@@ -5,13 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Scetch</title>
-
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
+    <script src="./script.js" defer></script>
   </head>
-
   <body>
-    <div id="grid"></div>
+    <div class="container">
+      <h1>Etch-A-Scetch</h1>
+      <div class="content">
+        <div class="board"></div>
+        <div class="buttons">
+          <button>First</button>
+          <button>Second</button>
+          <button>Third</button>
+        </div>
+        <div>
+          <input type="text" placeholder="Size of Board" value="16" />
+          <button>Set Size</button>
+        </div>
+      </div>
+    </div>
   </body>
-
 </html>
