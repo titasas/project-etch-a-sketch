@@ -1,11 +1,14 @@
 /* eslint-disable no-return-assign */
 let color = "black";
+let click = true;
 
 function colorSquare() {
-  if (color === "random") {
-    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-  } else {
-    this.style.backgroundColor = color;
+  if (click) {
+    if (color === "random") {
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+      this.style.backgroundColor = color;
+    }
   }
 }
 
@@ -28,9 +31,10 @@ createBoard(16);
 
 function changeSize(input) {
   if (input >= 2 && input <= 100) {
+    document.querySelector(".error").style.display = "none";
     createBoard(input);
   } else {
-    console.log("Incorrect amount of squares");
+    document.querySelector(".error").style.display = "flex";
   }
 }
 
@@ -44,3 +48,32 @@ function reset() {
   // eslint-disable-next-line no-param-reassign
   squares.forEach((div) => (div.style.backgroundColor = "white"));
 }
+
+const statusBtn = document.querySelector("#status-btn");
+
+function handleStatusField() {
+  if (click) {
+    document.querySelector(".mode").textContent = "Pen is enabled";
+  } else {
+    document.querySelector(".mode").textContent = "Pen is disabled";
+  }
+}
+
+function handleStatusBtn() {
+  click = !click;
+  handleStatusField();
+  if (click) {
+    statusBtn.textContent = "Active Pen";
+    statusBtn.style.backgroundColor = "seagreen";
+  } else {
+    statusBtn.textContent = "Inactive Pen";
+    statusBtn.style.backgroundColor = "salmon";
+  }
+}
+
+document.querySelector(".board").addEventListener("click", () => {
+  handleStatusBtn();
+});
+document.querySelector(".board").addEventListener("click", () => {
+  handleStatusField();
+});

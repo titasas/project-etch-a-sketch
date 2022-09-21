@@ -12,6 +12,7 @@
   <body>
     <div class="container">
       <h1>Etch-A-Scetch</h1>
+      <div class="mode">Pen is enabled</div>
       <div class="content">
         <div class="board"></div>
         <div class="buttons">
@@ -20,6 +21,9 @@
           <button onclick="changeColor('gray')">Gray</button>
           <button onclick="changeColor('random')">Random</button>
           <button onclick="reset()">Reset</button>
+          <button onclick="handleStatusBtn()" id="status-btn">
+            Active pen
+          </button>
         </div>
         <div>
           <input
@@ -29,6 +33,7 @@
             onchange="changeSize(this.value)"
           />
           <button>Set Size</button>
+          <div class="error">The size must be between 2 and 100 squares!</div>
         </div>
       </div>
     </div>
